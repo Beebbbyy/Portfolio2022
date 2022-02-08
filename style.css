@@ -99,11 +99,6 @@ html{
 /* home Section Style */
 
 .home {
-    /* display: flex;
-    background-color: #fff;
-    height: 100vh;
-    color: black;
-    min-height: 500px; */
     background: linear-gradient(-45deg, #FFBDA9, #FFEDF4, #B3EBFF, #C9FFF2);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -130,14 +125,19 @@ html{
     margin: auto 0 auto 40px;
   
 }
-.home .home-content .text-1{
-    font-size: 27px;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-    position: absolute;
+
+#profile_pic{
+
+    position:absolute; 
+    top:250px; 
+    left:470px; 
+    width:300px; 
+    height:300px; 
+    border:none;
+ 
+  
+    
+
 }
 .home .home-content .text-2{
     font-size: 75px;
@@ -148,6 +148,8 @@ html{
     text-align: center;
     z-index: 1;
     position: absolute;
+    align-content: center;
+    white-space: normal;
    
 }
 .home .home-content .text-3{
@@ -159,6 +161,9 @@ html{
     text-align: center;
     z-index: 1;
     position: absolute;
+    align-content: center;
+    white-space: normal;
+
 }
 .home .home-content .text-3 span{
     color: #f56a79;
@@ -287,9 +292,6 @@ section .title{
 }
 /* Skills Section */
 
-/* .skills .title::after{
-    content: "what I know";
-} */
 .skills .skills-content .column{
     width: calc(50% - 30px);
 }
@@ -423,9 +425,7 @@ section .title{
 }
 
 /* contact section */
-/* .contact .title::after{
-    content: "get in touch";
-} */
+
 .contact .contact-content .column{
     width: calc(50% - 30px);
 }
@@ -531,8 +531,8 @@ footer span a:hover{
 
 
 /* responsive media query */
-@media (max-width: 1640px){
-    #vanta-canvas{
+@media (max-width: 1642px){
+    #profile_pic{
         display: none;
     }
 }
@@ -546,9 +546,6 @@ footer span a:hover{
         height: 350px;
         width: 350px;
     }
-    #vanta-canvas{
-        display: none;
-    }
     .home{
         background-color: #d9ecf2;
     }
@@ -557,9 +554,7 @@ footer span a:hover{
     .max-width {
         padding: 0 50px;
     }
-    #vanta-canvas{
-        display: none;
-    }
+
 }
     
 
@@ -602,11 +597,8 @@ footer span a:hover{
         margin: 20px 0;
         font-size: 25px;
     }
-    .home .home-content .text-1{
-        font-size: 30px;
-    }
     .home .home-content .text-2{
-        font-size: 50px;
+        font-size: 45px;
     }
     .home .home-content .text-3{
         font-size: 30px;   
@@ -642,9 +634,7 @@ footer span a:hover{
         width: 100%;
         margin-bottom: 35px;
     }
-    #vanta-canvas{
-        display: none;
-    }
+  
     
 }
 @media (max-width: 690px){
@@ -658,7 +648,7 @@ footer span a:hover{
         font-size: 40px;
     }
     .home .home-content .text-3{
-        font-size: 20px;   
+        font-size: 30px;   
     }
     .home .home-content a{
         font-size: 20px;
