@@ -291,6 +291,12 @@ section .title{
     font-weight: 600;
     margin-bottom: 10px;
 }
+.work-1 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
 .skills .skills-content .left p{
     text-align: justify;
 }
@@ -338,20 +344,18 @@ section .title{
     background: #ff414d;
 }
 .skills .skills-content .right .html::before{
-    width: 90%;
+    width: 50%;
 }
 .skills .skills-content .right .css::before{
-    width: 60%;
+    width: 40%;
 }
 .skills .skills-content .right .js::before{
     width: 80%;
 }
 .skills .skills-content .right .php::before{
-    width: 50%;
+    width: 30%;
 }
-.skills .skills-content .right .mysql::before{
-    width: 70%;
-}
+
 
 .projects .carousel .card{
     background: #222;
