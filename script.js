@@ -18,14 +18,14 @@ jQuery(document).ready(function($){
     });
     /* typing */
     var typed = new Typed(".typing",{
-        strings: ["ETL Developer",  "Data Analyst"],
+        strings: ["ETL Developer",  "Data Engineer"],
         typeSpeed:100,
         backSpeed: 60,
         loop:true
     });
 
     var typed = new Typed(".typing-2",{
-        strings: ["ETL Developer.",  "Data Analys",],
+        strings: ["ETL Developer.",  "Data Engineer",],
         typeSpeed:100,
         backSpeed: 60,
         loop:true
