@@ -24,12 +24,12 @@ jQuery(document).ready(function($){
         loop:true
     });
 
-    var typed = new Typed(".typing-2",{
-        strings: ["ETL Developer.",  "Data Engineer",],
-        typeSpeed:100,
-        backSpeed: 60,
-        loop:true
-    });
+    // var typed = new Typed(".typing-2",{
+    //     strings: ["ETL Developer.",  "Data Engineer",],
+    //     typeSpeed:100,
+    //     backSpeed: 60,
+    //     loop:true
+    // });
     /* menu animation */
     const menu = document.querySelector('.navbar')
     const navlink = document.querySelector('.menu');
