@@ -343,17 +343,20 @@ section .title{
     top: 0;
     background: #03045E;
 }
-.skills .skills-content .right .html::before{
-    width: 50%;
+.skills .skills-content .right .python::before{
+    width: 95%;
 }
-.skills .skills-content .right .css::before{
-    width: 40%;
+.skills .skills-content .right .aws::before{
+    width: 90%;
 }
-.skills .skills-content .right .js::before{
+.skills .skills-content .right .sql::before{
+    width: 95%;
+}
+.skills .skills-content .right .databricks::before{
+    width: 85%;
+}
+.skills .skills-content .right .terraform::before{
     width: 80%;
-}
-.skills .skills-content .right .php::before{
-    width: 30%;
 }
 
 
