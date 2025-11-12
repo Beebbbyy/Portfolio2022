@@ -66,4 +66,43 @@ jQuery(document).ready(function($){
             }
         }
     });
+
+    // Theme toggle functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    const body = document.body;
+
+    // Function to set the theme and update the icon
+    function setTheme(theme) {
+        if (theme === 'dark-mode') {
+            body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            localStorage.removeItem('theme');
+        }
+    }
+
+    // Check for saved theme preference on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // If no preference saved, check system preference
+        setTheme('dark-mode');
+    } else {
+        setTheme('light-mode'); // Default to light mode if no preference
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            setTheme('light-mode');
+        } else {
+            setTheme('dark-mode');
+        }
+    });
 });
