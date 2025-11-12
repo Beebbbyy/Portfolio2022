@@ -267,4 +267,74 @@ jQuery(document).ready(function($){
             });
         });
     });
+
+    // ============================================
+    // CONTACT FORM WITH EMAILJS
+    // ============================================
+
+    // Initialize EmailJS
+    // NOTE: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    // Get your key from: https://dashboard.emailjs.com/admin/account
+    (function() {
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+    })();
+
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const notification = document.getElementById('form-notification');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Get form values
+            const formData = {
+                from_name: document.getElementById('from_name').value,
+                reply_to: document.getElementById('reply_to').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Send email using EmailJS
+            // NOTE: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+            // Get these from: https://dashboard.emailjs.com/admin
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Show success notification
+                    showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+
+                    // Reset form
+                    contactForm.reset();
+
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }, function(error) {
+                    console.log('FAILED...', error);
+
+                    // Show error notification
+                    showNotification('Failed to send message. Please try again or email me directly.', 'error');
+
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+    }
+
+    function showNotification(message, type) {
+        notification.textContent = message;
+        notification.className = `form-notification ${type} show`;
+
+        // Hide notification after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 5000);
+    }
 });
