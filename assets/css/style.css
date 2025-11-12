@@ -1,3 +1,39 @@
+/* Root CSS Variables for Theming */
+:root {
+    /* Light Mode Colors (Analyst's Clarity) */
+    --primary-accent: #007bff;
+    --secondary-accent: #6c757d;
+    --background-color: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --border-color: #dee2e6;
+    --card-background: #ffffff; /* Assuming cards are white in light mode */
+    --footer-background: #111; /* Keeping original for now, can be themed */
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --primary-accent: #8ab4f8;
+    --secondary-accent: #adb5bd;
+    --background-color: #212529;
+    --text-primary: #e9ecef;
+    --text-secondary: #ced4da;
+    --border-color: #343a40;
+    --card-background: #343a40; /* Darker cards for dark mode */
+    --footer-background: #0a0a0a; /* Slightly darker footer */
+}
+
+/* General Body and Text Styles */
+body {
+    background: var(--background-color);
+    color: var(--text-primary);
+    font-family: var(--font-body); /* Apply new body font */
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -15,12 +51,13 @@ html{
     z-index:999 ;
     width: 100%;
     padding: 30px 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--font-heading); /* Apply new heading font */
     transition: all 0.3s ease;
 }
 .navbar.sticky {
     padding: 15px 0;
-    background: #03045E;
+    background: var(--background-color); /* Use background color for sticky nav */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Modern shadow */
 }
 .navbar .max-width{
     display: flex;
@@ -33,15 +70,15 @@ html{
     margin: auto;
 }
 .navbar .logo a{
-    color: #fff;
+    color: var(--text-primary); /* Logo text color */
     font-size: 35px;
     font-weight: 600;
 }
 .navbar .logo a span{
-    color: #03045E;
+    color: var(--primary-accent); /* Logo accent color */
 }
 .navbar.sticky .logo a span{
-    color: #fff;
+    color: var(--primary-accent); /* Sticky logo accent color */
     transition: all 0.3s ease;
 }
 
@@ -51,22 +88,22 @@ html{
 }
 .navbar .menu li a{
     display: block;
-    color: #fff;
+    color: var(--text-primary); /* Menu item color */
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
 }
 .navbar .menu li a:hover{
-    color: #90E0EF;
+    color: var(--primary-accent); /* Menu item hover color */
 
 }
 .navbar.sticky .menu li a:hover{
-    color: #d9ecf2;
+    color: var(--primary-accent); /* Sticky menu item hover color */
 }
 /* meny btn styling */
 .menu-btn{
-    color: #fff;
+    color: var(--text-primary); /* Menu button color */
     font-size: 23px;
     cursor: pointer;
     display: none;
@@ -76,12 +113,12 @@ html{
     position: fixed;
     height: 45px;
     width: 42px;
-    background: #90E0EF;
+    background: var(--primary-accent);
     right:30px;
     bottom: 10px;
     text-align: center;
     line-height: 45px;
-    color: #fff;
+    color: var(--background-color); /* Text color should contrast with accent */
     z-index: 999;
     font-size: 30px;
     border-radius: 6px;
@@ -103,7 +140,7 @@ html{
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--font-heading); /* Apply new heading font */
 }
 
 @keyframes gradient {
@@ -146,6 +183,7 @@ html{
     position: absolute;
     align-content: center;
     white-space: normal;
+    color: var(--text-primary); /* Ensure home text uses primary text color */
    
 }
 .home .home-content .text-3{
@@ -159,16 +197,17 @@ html{
     position: absolute;
     align-content: center;
     white-space: normal;
+    color: var(--text-primary); /* Ensure home text uses primary text color */
 
 }
 .home .home-content .text-3 span{
-    color: #03045E;
+    color: var(--primary-accent); /* Home accent color */
     font-weight: 500;
 }
 
 /* Similar Code Content */
 .about, .services, .skills, .projects, .contact, footer{
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body); /* Apply new body font */
 }
 .about .about-content,
 .services .serv-content,
@@ -189,7 +228,11 @@ section .title{
     font-weight: 500;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--font-heading); /* Apply new heading font */
+    color: var(--text-primary); /* Section titles use primary text color */
+}
+section .title::before {
+    background: var(--text-primary); /* Title underline color */
 }
 
 .about .about-content .left{
@@ -217,7 +260,7 @@ section .title{
     margin-bottom: 10px;
 }
 .about .about-content .right .text span{
-    color: #90E0EF;
+    color: var(--primary-accent); /* About section accent */
 }
 .about .about-content .right  p{
     text-align: justify;
@@ -225,42 +268,44 @@ section .title{
 }
 .about .about-content .right  a{
     display: inline-block;
-    background: #90E0EF;
-    color: #fff;
+    background: var(--primary-accent);
+    color: var(--background-color); /* Button text color */
     font-size: 20px;
     font-weight: 500;
     padding: 10px 30px;
     margin-top: 20px;
     border-radius: 6px;
-    border: 2px solid #90E0EF;
+    border: 2px solid var(--primary-accent);
     transition: all 0.3s ease;
 }
 
 .about .about-content .right  a:hover{
-    color: #90E0EF;
+    color: var(--primary-accent);
     background: none;
 }
 /* Services Section */
 .services, .projects{
-    color: #fff;
-    background: #03045E;
+    color: var(--text-primary); /* Text color for these sections */
+    background: var(--background-color); /* Background color for these sections */
 }
 .services .title::before,
 .projects .title::before{
-    background: #fff;
+    background: var(--text-primary); /* Title underline color */
 }
 
 .services .serv-content .card{
     width: calc(33% - 20px);
-    background: #222;
+    background: var(--card-background); /* Card background */
     text-align: center;
     border-radius: 6px;
     padding: 20px 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
 }
 .services .serv-content .card:hover{
-    background: #90E0EF;
+    background: var(--primary-accent);
+    color: var(--background-color); /* Text color on hover */
 }
 .services .serv-content .card .box{
     transition: all 0.3s ease;
@@ -270,11 +315,11 @@ section .title{
 }
 .services .serv-content .card i{
     font-size: 50px;
-    color: #90E0EF;
+    color: var(--primary-accent);
     transition: all 0.3s ease;
 }
 .services .serv-content .card:hover i{
-    color: #fff;
+    color: var(--background-color); /* Icon color on hover */
 }
 .services .serv-content .card .text{
     font-size: 25px;
@@ -302,18 +347,18 @@ section .title{
 }
 .skills .skills-content .left a{
     display: inline-block;
-    background: #90E0EF;
-    color: #fff;
+    background: var(--primary-accent);
+    color: var(--background-color); /* Button text color */
     font-size: 18px;
     font-weight: 500;
     padding: 8px 16px;
     margin-top: 20px;
     border-radius: 6px;
-    border: 2px solid #90E0EF;
+    border: 2px solid var(--primary-accent);
     transition: all 0.3s ease;
 }
 .skills .skills-content .left a:hover{
-    color: #90E0EF;
+    color: var(--primary-accent);
     background: none;
 }
 .skills .skills-content .right .bars{
@@ -332,7 +377,7 @@ section .title{
 .skills .skills-content .right .line{
     height: 5px;
     width: 100%;
-    background: lightgrey;
+    background: var(--border-color); /* Skill bar background */
     position: relative;
 }
 .skills .skills-content .right .line::before{
@@ -341,7 +386,7 @@ section .title{
     height: 100%;
     left: 0;
     top: 0;
-    background: #03045E;
+    background: var(--primary-accent); /* Skill bar fill color */
 }
 .skills .skills-content .right .python::before{
     width: 95%;
@@ -361,14 +406,16 @@ section .title{
 
 
 .projects .carousel .card{
-    background: #222;
+    background: var(--card-background); /* Card background */
     border-radius: 6px;
     padding: 25px 35px;
     text-align: center;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
 }
 .projects .carousel .card:hover{
-    background:#90E0EF;
+    background: var(--primary-accent);
+    color: var(--background-color); /* Text color on hover */
 }
 .projects .carousel .card .box{
     display: flex;
@@ -390,11 +437,11 @@ section .title{
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid #90E0EF;
+    border: 5px solid var(--primary-accent);
     transition: all 0.3s ease;
 }
 .projects .carousel .card:hover img{
-    border-color: #fff;
+    border-color: var(--background-color); /* Image border on hover */
 }
 .owl-dots{
     text-align: center;
@@ -406,7 +453,7 @@ section .title{
     margin:0 5px;
     outline: none !important;
     border-radius: 50%;
-    border: 2px solid #90E0EF !important;
+    border: 2px solid var(--primary-accent) !important;
     transition: all 0.3s ease;
 }
 .owl-dot.active{
@@ -415,7 +462,7 @@ section .title{
 }
 .owl-dot.active,
 .owl-dot:hover{
-    background: #90E0EF !important;
+    background: var(--primary-accent) !important;
 }
 
 /* contact section */
@@ -445,13 +492,13 @@ section .title{
 }
 .contact .contact-content .row i{
     font-size: 25px;
-    color: #90E0EF;
+    color: var(--primary-accent);
 }
 .contact .contact-content .info .head{
     font-weight: 500;
 }
 .contact .contact-content .info .sub-title{
-    color: #333;
+    color: var(--text-secondary); /* Subtitle color */
 }
 .contact .right form .fields{
     display: flex;
@@ -476,12 +523,14 @@ section .title{
 .contact .right form .textarea textarea{
     height: 100%;
     width: 100%;
-    border: 1px solid lightgrey;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     outline: none;
     padding: 0 15px;
     font-size: 17px;
-    font-family: 'Poppins',sans-serif;
+    font-family: var(--font-body); /* Input font */
+    background: var(--card-background); /* Input background */
+    color: var(--text-primary); /* Input text color */
 }
 .contact .right form .textarea textarea{
     padding-top: 10px;
@@ -494,9 +543,9 @@ section .title{
 .contact .right form .button button{
     width: 100%;
     height: 100%;
-    border: 2px soldi #90E0EF ;
-    background: #90E0EF;
-    color: #fff;
+    border: 2px solid var(--primary-accent) ;
+    background: var(--primary-accent);
+    color: var(--background-color); /* Button text color */
     font-size: 20px;
     font-weight: 500;
     border-radius: 6px;
@@ -504,19 +553,19 @@ section .title{
     transition: all 0.3s ease;
 }
 .contact .right form .button button:hover{
-    color: #90E0EF;
+    color: var(--primary-accent);
     background: none;
 }
 /* footer section */
 
 footer{
-    background: #111;
+    background: var(--footer-background);
     padding:20px 23px;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary); /* Footer text color */
+    font-family: var(--font-body); /* Footer font */
 }
 footer span a{
-    color: #90E0EF;
+    color: var(--primary-accent);
     text-decoration: none;
 }
 footer span a:hover{
@@ -530,6 +579,57 @@ footer span a:hover{
         display: none;
     }
 }
+
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+    background: var(--primary-accent);
+    color: var(--background-color);
+    border: 2px solid var(--primary-accent);
+    width: 40px; /* Make it a square button */
+    height: 40px;
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+    font-size: 18px; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px; /* Align with menu items */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.theme-toggle-btn:hover {
+    background: transparent;
+    color: var(--primary-accent);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Visually hide screen reader text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Adjust navbar menu for button */
+.navbar .menu li .theme-toggle-btn {
+    margin-top: 0; /* Reset margin for button in menu */
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments for the toggle button */
+@media (max-width: 947px) {
+    .navbar .menu li .theme-toggle-btn {
+        display: flex; /* Ensure button is visible and centered in mobile menu */
+        margin: 20px auto; /* Center in mobile menu */
+    }
+}
 @media (max-width: 1300px){
     .home .max-width{
         margin-left: 0px;
@@ -541,7 +641,7 @@ footer span a:hover{
         width: 350px;
     }
     .home{
-        background-color: #d9ecf2;
+        background-color: var(--background-color); /* Use variable */
     }
 
 }
@@ -566,7 +666,7 @@ footer span a:hover{
     }
     .navbar .menu{
         position: fixed;
-        background: #90E0EF;
+        background: var(--primary-accent); /* Use variable */
         height:100vh;
         width: 100%;
         right: -100%;
