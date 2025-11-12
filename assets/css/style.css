@@ -1,4 +1,5 @@
 /* Root CSS Variables for Theming */
+/* Enhanced Dark Mode Implementation with smooth transitions and improved contrast */
 :root {
     /* Light Mode Colors (Analyst's Clarity) */
     --primary-accent: #007bff;
@@ -17,14 +18,14 @@
 
 /* Dark Mode Overrides */
 body.dark-mode {
-    --primary-accent: #8ab4f8;
+    --primary-accent: #64b5f6;
     --secondary-accent: #adb5bd;
-    --background-color: #212529;
-    --text-primary: #e9ecef;
-    --text-secondary: #ced4da;
-    --border-color: #343a40;
-    --card-background: #343a40; /* Darker cards for dark mode */
-    --footer-background: #0a0a0a; /* Slightly darker footer */
+    --background-color: #1a1a1a;
+    --text-primary: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --card-background: #2d2d2d; /* Darker cards for dark mode with better contrast */
+    --footer-background: #0f0f0f; /* Slightly darker footer */
 }
 
 /* General Body and Text Styles */
@@ -32,6 +33,7 @@ body {
     background: var(--background-color);
     color: var(--text-primary);
     font-family: var(--font-body); /* Apply new body font */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 *{
@@ -39,6 +41,16 @@ body {
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+/* Disable transitions for animations to prevent conflicts */
+.animate-on-scroll,
+.animated,
+[class*="animation"] {
+    transition: none !important;
 }
 
 html{
@@ -154,7 +166,7 @@ section .title.animated {
     width: 100%;
     padding: 30px 0;
     font-family: var(--font-heading); /* Apply new heading font */
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, background-color 0.3s ease;
 }
 .navbar.sticky {
     padding: 15px 0;
@@ -261,6 +273,14 @@ section .title.animated {
 	animation: gradient 15s ease infinite;
 	height: 100vh;
     font-family: var(--font-heading); /* Apply new heading font */
+    transition: background 0.5s ease;
+}
+
+/* Dark mode home gradient */
+body.dark-mode .home {
+    background: linear-gradient(-45deg, #1a2332, #2d1b2e, #1e2836, #1d2d2d);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
@@ -350,6 +370,7 @@ section .title{
     padding-bottom: 20px;
     font-family: var(--font-heading); /* Apply new heading font */
     color: var(--text-primary); /* Section titles use primary text color */
+    transition: color 0.3s ease;
 }
 section .title::before {
     background: var(--text-primary); /* Title underline color */
@@ -431,7 +452,7 @@ section .title::before {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
     opacity: 0;
 }
 
@@ -497,7 +518,7 @@ section .title::before {
     border-radius: 6px;
     padding: 20px 25px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
     opacity: 0;
 }
@@ -693,7 +714,7 @@ section .title::before {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
     opacity: 0;
 }
 
@@ -886,7 +907,7 @@ section .title::before {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
     opacity: 0;
     display: flex;
     flex-direction: column;
@@ -1140,7 +1161,7 @@ section .title::before {
     font-family: var(--font-body); /* Input font */
     background: var(--card-background); /* Input background */
     color: var(--text-primary); /* Input text color */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .contact .right form .field input:focus,
@@ -1230,19 +1251,45 @@ footer span a:hover{
     align-items: center;
     justify-content: center;
     margin-left: 25px; /* Align with menu items */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.theme-toggle-btn:active::before {
+    width: 100px;
+    height: 100px;
 }
 
 .theme-toggle-btn:hover {
     background: transparent;
     color: var(--primary-accent);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    transform: scale(1.15);
 }
 
 .theme-toggle-btn i {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .theme-toggle-btn i {
+    transform: rotate(180deg);
 }
 
 /* Visually hide screen reader text */
