@@ -24,12 +24,6 @@ jQuery(document).ready(function($){
         loop:true
     });
 
-    // var typed = new Typed(".typing-2",{
-    //     strings: ["ETL Developer.",  "Data Engineer",],
-    //     typeSpeed:100,
-    //     backSpeed: 60,
-    //     loop:true
-    // });
     /* menu animation */
     const menu = document.querySelector('.navbar')
     const navlink = document.querySelector('.menu');
@@ -44,27 +38,6 @@ jQuery(document).ready(function($){
     $('.menu-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
-    });
-    /* owl carousel script */
-    $('.carousel').owlCarousel({
-        margin:20,
-        loop:true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive:{
-            0:{
-                items:1,
-                nav: false
-            },
-            600:{
-                items:2,
-                nav: false
-            },
-            1000:{
-                items:3,
-                nav: false
-            }
-        }
     });
 
     // Theme toggle functionality
@@ -304,8 +277,6 @@ jQuery(document).ready(function($){
             // Get these from: https://dashboard.emailjs.com/admin
             emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
                 .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-
                     // Show success notification
                     showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
 
@@ -316,8 +287,6 @@ jQuery(document).ready(function($){
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Message';
                 }, function(error) {
-                    console.log('FAILED...', error);
-
                     // Show error notification
                     showNotification('Failed to send message. Please try again or email me directly.', 'error');
 
