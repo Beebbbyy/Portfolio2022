@@ -171,6 +171,15 @@ jQuery(document).ready(function($){
         observer.observe(card);
     });
 
+    // Observe blog filters
+    const blogFilters = document.querySelector('.blog .blog-filters');
+    if (blogFilters) observer.observe(blogFilters);
+
+    // Observe blog cards
+    document.querySelectorAll('.blog-grid .blog-card').forEach(card => {
+        observer.observe(card);
+    });
+
     // ============================================
     // PROJECT FILTERING
     // ============================================
@@ -188,6 +197,50 @@ jQuery(document).ready(function($){
             const filterValue = btn.getAttribute('data-filter');
 
             projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hide');
+                    // Re-trigger animation
+                    card.style.animation = 'none';
+                    setTimeout(() => {
+                        card.style.animation = '';
+                        card.classList.add('animated');
+                    }, 10);
+                } else {
+                    if (categories.includes(filterValue)) {
+                        card.classList.remove('hide');
+                        // Re-trigger animation
+                        card.style.animation = 'none';
+                        setTimeout(() => {
+                            card.style.animation = '';
+                            card.classList.add('animated');
+                        }, 10);
+                    } else {
+                        card.classList.add('hide');
+                    }
+                }
+            });
+        });
+    });
+
+    // ============================================
+    // BLOG FILTERING
+    // ============================================
+
+    const blogFilterBtns = document.querySelectorAll('.blog-filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    blogFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            blogFilterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            blogCards.forEach(card => {
                 const categories = card.getAttribute('data-category');
 
                 if (filterValue === 'all') {
