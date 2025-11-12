@@ -139,6 +139,11 @@ jQuery(document).ready(function($){
     if (aboutLeft) observer.observe(aboutLeft);
     if (aboutRight) observer.observe(aboutRight);
 
+    // Observe stats boxes
+    document.querySelectorAll('.stats-container .stat-box').forEach(statBox => {
+        observer.observe(statBox);
+    });
+
     // Observe service cards
     document.querySelectorAll('.services .serv-content .card').forEach(card => {
         observer.observe(card);
@@ -160,4 +165,53 @@ jQuery(document).ready(function($){
     const contactRight = document.querySelector('.contact .contact-content .right');
     if (contactLeft) observer.observe(contactLeft);
     if (contactRight) observer.observe(contactRight);
+
+    // Observe project cards
+    document.querySelectorAll('.projects-grid .project-card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // ============================================
+    // PROJECT FILTERING
+    // ============================================
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hide');
+                    // Re-trigger animation
+                    card.style.animation = 'none';
+                    setTimeout(() => {
+                        card.style.animation = '';
+                        card.classList.add('animated');
+                    }, 10);
+                } else {
+                    if (categories.includes(filterValue)) {
+                        card.classList.remove('hide');
+                        // Re-trigger animation
+                        card.style.animation = 'none';
+                        setTimeout(() => {
+                            card.style.animation = '';
+                            card.classList.add('animated');
+                        }, 10);
+                    } else {
+                        card.classList.add('hide');
+                    }
+                }
+            });
+        });
+    });
 });

@@ -71,6 +71,29 @@
                     <a href="assets/documents/Lacson_RicaMae_Resume.pdf" target="_blank"><span></span>Download CV</a>
                 </div>
             </div>
+            <!-- Stats/Highlights Box -->
+            <div class="stats-container">
+                <div class="stat-box">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-project-diagram"></i>
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-certificate"></i>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">AWS Certifications</div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-code"></i>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -178,40 +201,141 @@
     <section class="projects" id="projects">
         <div class="max-width">
             <h2 class="title">My Projects</h2>
-            <div class="carousel owl-carousel">
-                <div class="card">
-                    <div class="box">
-                        <img src="assets/images/pic01.jpg" alt="">
-                        <div class="text">Someone Name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.</p>
+
+            <!-- Filter Buttons -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="data-engineering">Data Engineering</button>
+                <button class="filter-btn" data-filter="cloud">Cloud</button>
+                <button class="filter-btn" data-filter="aiml">AI/ML</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <div class="project-card" data-category="data-engineering cloud">
+                    <div class="project-image">
+                        <img src="assets/images/pic01.jpg" alt="ETL Pipeline">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AWS Serverless ETL Pipeline</h3>
+                        <p>Architected and automated serverless ETL pipelines using AWS Glue and Lambda for real-time data processing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">AWS Glue</span>
+                            <span class="tech-badge">Lambda</span>
+                            <span class="tech-badge">S3</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="assets/images/pic02.jpg" alt="">
-                        <div class="text">Someone Name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.</p>
+
+                <div class="project-card" data-category="data-engineering aiml">
+                    <div class="project-image">
+                        <img src="assets/images/pic02.jpg" alt="Data Pipeline">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI-Ready Data Pipeline</h3>
+                        <p>Engineered and scaled data pipelines to power real-time BI dashboards and support ML model training.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">PySpark</span>
+                            <span class="tech-badge">Databricks</span>
+                            <span class="tech-badge">Redshift</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="assets/images/pic03.jpg" alt="">
-                        <div class="text">Someone Name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.</p>
+
+                <div class="project-card" data-category="cloud">
+                    <div class="project-image">
+                        <img src="assets/images/pic03.jpg" alt="Infrastructure">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Infrastructure as Code</h3>
+                        <p>Orchestrated AWS infrastructure deployment using Terraform with automated CI/CD pipelines.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Terraform</span>
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">BuildKite</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="assets/images/pic04.jpg" alt="">
-                        <div class="text">Someone Name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.</p>
+
+                <div class="project-card" data-category="data-engineering">
+                    <div class="project-image">
+                        <img src="assets/images/pic04.jpg" alt="Data Lake">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AWS Data Lake Architecture</h3>
+                        <p>Developed data ingestion pipelines for an AWS-based data lake with high data quality and availability.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">AWS S3</span>
+                            <span class="tech-badge">Glue</span>
+                            <span class="tech-badge">Athena</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="assets/images/pic05.jpg" alt="">
-                        <div class="text">Someone Name</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum.</p>
+
+                <div class="project-card" data-category="cloud data-engineering">
+                    <div class="project-image">
+                        <img src="assets/images/pic05.jpg" alt="Migration">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cloud Migration Project</h3>
+                        <p>Successfully migrated an existing system from on-premise to AWS services using CloudFormation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">CloudFormation</span>
+                            <span class="tech-badge">EC2</span>
+                            <span class="tech-badge">RDS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data-engineering">
+                    <div class="project-image">
+                        <img src="assets/images/pic01.jpg" alt="ETL Tool">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Informatica ETL Solution</h3>
+                        <p>Developed ETL mappings and optimized SQL code for enterprise data warehousing solutions.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Informatica</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Oracle</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -285,7 +409,6 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
-    <script src="animated.js"></script>
 </body>
 
 </html>
