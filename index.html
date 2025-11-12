@@ -35,6 +35,7 @@
                 <li><a href="#services" class= "menu-btn">Services</a></li>
                 <li><a href="#skills" class= "menu-btn">Skills</a></li>
                 <li><a href="#projects" class= "menu-btn">Projects</a></li>
+                <li><a href="#blog" class= "menu-btn">Blog</a></li>
                 <li><a href="#contact" class= "menu-btn">Contact</a></li>
                 <li><button id="theme-toggle" class="theme-toggle-btn"><i class="fas fa-moon"></i><span class="sr-only">Toggle Theme</span></button></li>
             </ul>
@@ -338,6 +339,139 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- blog section start -->
+    <section class="blog" id="blog">
+        <div class="max-width">
+            <h2 class="title">My Blog</h2>
+
+            <!-- Filter Buttons -->
+            <div class="blog-filters">
+                <button class="blog-filter-btn active" data-filter="all">All</button>
+                <button class="blog-filter-btn" data-filter="data-engineering">Data Engineering</button>
+                <button class="blog-filter-btn" data-filter="cloud">Cloud</button>
+                <button class="blog-filter-btn" data-filter="career">Career</button>
+                <button class="blog-filter-btn" data-filter="tutorial">Tutorial</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <article class="blog-card" data-category="data-engineering tutorial">
+                    <div class="blog-image">
+                        <img src="assets/images/pic01.jpg" alt="ETL Best Practices">
+                        <div class="blog-date">
+                            <span class="day">15</span>
+                            <span class="month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Data Engineering</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Building Scalable ETL Pipelines: Best Practices</h3>
+                        <p>Learn essential best practices for designing and implementing scalable ETL pipelines using AWS services and modern data engineering patterns.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="cloud tutorial">
+                    <div class="blog-image">
+                        <img src="assets/images/pic02.jpg" alt="Terraform AWS">
+                        <div class="blog-date">
+                            <span class="day">08</span>
+                            <span class="month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Cloud</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3>Infrastructure as Code with Terraform on AWS</h3>
+                        <p>A comprehensive guide to automating AWS infrastructure deployment using Terraform, including best practices and real-world examples.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="data-engineering">
+                    <div class="blog-image">
+                        <img src="assets/images/pic03.jpg" alt="Data Lake Architecture">
+                        <div class="blog-date">
+                            <span class="day">22</span>
+                            <span class="month">Dec</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Data Engineering</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <h3>Designing a Modern Data Lake Architecture</h3>
+                        <p>Explore architectural patterns and considerations for building a robust, scalable data lake on AWS using S3, Glue, and Athena.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="career">
+                    <div class="blog-image">
+                        <img src="assets/images/pic04.jpg" alt="Career Growth">
+                        <div class="blog-date">
+                            <span class="day">10</span>
+                            <span class="month">Dec</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Career</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>From QA to Data Engineer: My Journey</h3>
+                        <p>Sharing my career transition story, lessons learned, and advice for aspiring data engineers looking to break into the field.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="cloud data-engineering">
+                    <div class="blog-image">
+                        <img src="assets/images/pic05.jpg" alt="AWS Lambda">
+                        <div class="blog-date">
+                            <span class="day">28</span>
+                            <span class="month">Nov</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Cloud</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>Serverless Data Processing with AWS Lambda</h3>
+                        <p>Discover how to build cost-effective, serverless data processing pipelines using AWS Lambda, S3, and EventBridge.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="tutorial">
+                    <div class="blog-image">
+                        <img src="assets/images/pic01.jpg" alt="PySpark Tutorial">
+                        <div class="blog-date">
+                            <span class="day">15</span>
+                            <span class="month">Nov</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tutorial</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h3>Getting Started with PySpark and Databricks</h3>
+                        <p>A beginner-friendly tutorial on using PySpark in Databricks for large-scale data processing and transformation tasks.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
