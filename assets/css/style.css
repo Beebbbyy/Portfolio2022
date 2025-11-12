@@ -43,7 +43,109 @@ body {
 
 html{
     scroll-behavior: smooth;
+}
 
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Skill bar fill animation */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+}
+
+/* ============================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ============================================ */
+
+/* Base state for animated elements */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate-on-scroll.animated {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Section titles */
+section .title {
+    opacity: 0;
+}
+
+section .title.animated {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 /* navbar styling */
 .navbar{
@@ -92,11 +194,24 @@ html{
     font-size: 18px;
     font-weight: 500;
     margin-left: 25px;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+.navbar .menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .navbar .menu li a:hover{
     color: var(--primary-accent); /* Menu item hover color */
-
+}
+.navbar .menu li a:hover::after {
+    width: 100%;
 }
 .navbar.sticky .menu li a:hover{
     color: var(--primary-accent); /* Sticky menu item hover color */
@@ -125,12 +240,17 @@ html{
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .scroll-up-btn.show{
     bottom: 30px;
     opacity: 1;
     pointer-events: auto;
+    animation: fadeInUp 0.5s ease;
+}
+.scroll-up-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
 /* home Section Style */
@@ -237,6 +357,11 @@ section .title::before {
 
 .about .about-content .left{
     width: 45%;
+    opacity: 0;
+}
+
+.about .about-content .left.animated {
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .about .about-content .left img{
@@ -245,14 +370,21 @@ section .title::before {
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16);
-    transition: all ease-in-out 0.2s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 
 }
 .about .about-content .left img:hover{
     box-shadow: 0 10px 14px 0 rgba(34, 60, 80, .16);
+    transform: scale(1.05) rotate(2deg);
 }
 .about .about-content .right{
     width:55%;
+    opacity: 0;
+}
+
+.about .about-content .right.animated {
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
 }
 .about .about-content .right .text{
     font-size: 25px;
@@ -300,15 +432,35 @@ section .title::before {
     border-radius: 6px;
     padding: 20px 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
+    opacity: 0;
 }
+
+.services .serv-content .card.animated {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.services .serv-content .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.services .serv-content .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.services .serv-content .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
 .services .serv-content .card:hover{
     background: var(--primary-accent);
     color: var(--background-color); /* Text color on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
 }
 .services .serv-content .card .box{
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .services .serv-content .card:hover .box{
     transform: scale(1.05);
@@ -379,6 +531,8 @@ section .title::before {
     width: 100%;
     background: var(--border-color); /* Skill bar background */
     position: relative;
+    border-radius: 3px;
+    overflow: hidden;
 }
 .skills .skills-content .right .line::before{
     content: "";
@@ -387,21 +541,47 @@ section .title::before {
     left: 0;
     top: 0;
     background: var(--primary-accent); /* Skill bar fill color */
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 3px;
 }
-.skills .skills-content .right .python::before{
+
+.skills .skills-content .right .bars.animated .python::before{
     width: 95%;
 }
-.skills .skills-content .right .aws::before{
+.skills .skills-content .right .bars.animated .aws::before{
     width: 90%;
+    transition-delay: 0.1s;
 }
-.skills .skills-content .right .sql::before{
+.skills .skills-content .right .bars.animated .sql::before{
     width: 95%;
+    transition-delay: 0.2s;
 }
-.skills .skills-content .right .databricks::before{
+.skills .skills-content .right .bars.animated .databricks::before{
     width: 85%;
+    transition-delay: 0.3s;
 }
-.skills .skills-content .right .terraform::before{
+.skills .skills-content .right .bars.animated .terraform::before{
     width: 80%;
+    transition-delay: 0.4s;
+}
+
+/* Skill section content animations */
+.skills .skills-content .left {
+    opacity: 0;
+}
+
+.skills .skills-content .left.animated {
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.skills .skills-content .right {
+    opacity: 0;
+}
+
+.skills .skills-content .right.animated {
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
 }
 
 
@@ -410,19 +590,21 @@ section .title::before {
     border-radius: 6px;
     padding: 25px 35px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
 }
 .projects .carousel .card:hover{
     background: var(--primary-accent);
     color: var(--background-color); /* Text color on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
 }
 .projects .carousel .card .box{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .projects .carousel .card:hover .box{
     transform: scale(1.05);
@@ -531,10 +713,37 @@ section .title::before {
     font-family: var(--font-body); /* Input font */
     background: var(--card-background); /* Input background */
     color: var(--text-primary); /* Input text color */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus{
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+}
+
 .contact .right form .textarea textarea{
     padding-top: 10px;
     resize: none;
+}
+
+/* Contact section content animations */
+.contact .contact-content .left {
+    opacity: 0;
+}
+
+.contact .contact-content .left.animated {
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.contact .contact-content .right {
+    opacity: 0;
+}
+
+.contact .contact-content .right.animated {
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.2s;
 }
 .contact .right form .button{
     height: 47px;
@@ -594,7 +803,7 @@ footer span a:hover{
     align-items: center;
     justify-content: center;
     margin-left: 25px; /* Align with menu items */
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
@@ -602,6 +811,11 @@ footer span a:hover{
     background: transparent;
     color: var(--primary-accent);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: rotate(180deg) scale(1.1);
+}
+
+.theme-toggle-btn i {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Visually hide screen reader text */
