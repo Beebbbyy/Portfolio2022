@@ -105,4 +105,59 @@ jQuery(document).ready(function($){
             setTheme('dark-mode');
         }
     });
+
+    // ============================================
+    // SCROLL-TRIGGERED ANIMATIONS
+    // ============================================
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                // For skill bars, also trigger their animation
+                if (entry.target.classList.contains('bars')) {
+                    entry.target.classList.add('animated');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe section titles
+    document.querySelectorAll('section .title').forEach(title => {
+        observer.observe(title);
+    });
+
+    // Observe about section columns
+    const aboutLeft = document.querySelector('.about .about-content .left');
+    const aboutRight = document.querySelector('.about .about-content .right');
+    if (aboutLeft) observer.observe(aboutLeft);
+    if (aboutRight) observer.observe(aboutRight);
+
+    // Observe service cards
+    document.querySelectorAll('.services .serv-content .card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // Observe skills section columns
+    const skillsLeft = document.querySelector('.skills .skills-content .left');
+    const skillsRight = document.querySelector('.skills .skills-content .right');
+    if (skillsLeft) observer.observe(skillsLeft);
+    if (skillsRight) observer.observe(skillsRight);
+
+    // Observe skill bars specifically
+    document.querySelectorAll('.skills .skills-content .right .bars').forEach(bars => {
+        observer.observe(bars);
+    });
+
+    // Observe contact section columns
+    const contactLeft = document.querySelector('.contact .contact-content .left');
+    const contactRight = document.querySelector('.contact .contact-content .right');
+    if (contactLeft) observer.observe(contactLeft);
+    if (contactRight) observer.observe(contactRight);
 });
